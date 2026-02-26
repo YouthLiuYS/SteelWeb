@@ -1,10 +1,12 @@
 "use client";
 
 import LangText from "./components/LangText";
-import LanguageToggle from "./components/LanguageToggle";
 import HeroSection from "./components/sections/HeroSection";
-import TrustStrip from "./components/sections/TrustStrip";
-import CasesSection from "./components/sections/CasesSection";
+import TopBar from "./components/sections/TopBar";
+import AboutSection from "./components/sections/AboutSection";
+import ProductsSection from "./components/sections/ProductsSection";
+import WhyChooseSection from "./components/sections/WhyChooseSection";
+import NewsSection from "./components/sections/NewsSection";
 import QuoteSection from "./components/sections/QuoteSection";
 import { LocalizedString, siteData } from "@/content/siteData";
 
@@ -17,6 +19,8 @@ function getNavLabel(id: string) {
 export default function Home() {
   return (
     <div className="page">
+      <TopBar />
+
       <header className="site-header">
         <div className="container header-inner">
           <a className="logo" href="#top">
@@ -33,96 +37,39 @@ export default function Home() {
 
           <nav className="nav" aria-label="Primary navigation">
             {siteData.nav.map((item) => (
-              <a key={item.id} href={`#${item.id}`}>
+              <a href={`#${item.id}`} key={item.id}>
                 <LangText value={item.label} />
               </a>
             ))}
           </nav>
-
-          <LanguageToggle />
         </div>
       </header>
 
       <main>
         <HeroSection />
-        <TrustStrip />
+        <AboutSection />
+        <ProductsSection />
+        <WhyChooseSection />
+        <NewsSection />
 
-        <section className="section" id="products">
-          <div className="container">
-            <div className="section-head reveal">
-              <p className="section-kicker">
-                <LangText value={getNavLabel("products")} />
-              </p>
-              <h2>
-                <LangText value={siteData.sections.productsTitle} />
-              </h2>
-            </div>
-
-            <div className="product-grid reveal">
-              {siteData.products.map((product) => (
-                <article className="product-card" key={product.name.zh}>
-                  <h3>
-                    <LangText value={product.name} />
-                  </h3>
-                  <p className="muted">
-                    <LangText value={product.spec} />
-                  </p>
-                  <p>
-                    <LangText value={product.use} />
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-surface" id="process">
-          <div className="container">
-            <div className="section-head reveal">
-              <p className="section-kicker">
-                <LangText value={getNavLabel("process")} />
-              </p>
-              <h2>
-                <LangText value={siteData.sections.processTitle} />
-              </h2>
-            </div>
-
-            <div className="process-grid reveal">
-              {siteData.process.map((step, index) => (
-                <article className="process-card" key={step.step.zh}>
-                  <p className="process-index">{String(index + 1).padStart(2, "0")}</p>
-                  <h3>
-                    <LangText value={step.step} />
-                  </h3>
-                  <p className="muted">
-                    <LangText value={step.detail} />
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <CasesSection />
-
-        <section className="section" id="quality">
+        <section className="section section-dark quality-section" id="quality">
           <div className="container quality-layout reveal">
             <div className="quality-copy">
               <div className="section-head">
-                <p className="section-kicker">
+                <p className="section-kicker light">
                   <LangText value={getNavLabel("quality")} />
                 </p>
-                <h2>
+                <h2 className="section-title-light">
                   <LangText value={siteData.quality.title} />
                 </h2>
               </div>
-              <p className="section-desc">
+              <p className="section-desc light-desc">
                 <LangText value={siteData.quality.description} />
               </p>
               <ul className="quality-list">
                 {siteData.quality.items.map((item, index) => (
                   <li key={`${item.zh}-${index}`}>
-                    <span className="quality-check" aria-hidden="true" />
+                    <span aria-hidden="true" className="quality-check" />
                     <LangText value={item} />
                   </li>
                 ))}
@@ -133,7 +80,7 @@ export default function Home() {
               <h3>
                 <LangText value={siteData.quality.badgeTitle} />
               </h3>
-              <p className="muted">
+              <p className="muted-light">
                 <LangText value={siteData.quality.badgeNote} />
               </p>
               <div className="quality-badges">

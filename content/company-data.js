@@ -6,18 +6,26 @@ module.exports = {
     tagline: { zh: "钢板网制造与定制解决方案", en: "Expanded Metal Manufacturing & Custom Solutions" },
     location: { zh: "中国 河北 安平", en: "Anping, Hebei, China" }
   },
+  topBar: {
+    companyShort: { zh: "安平钢盾钢板网有限公司", en: "SteelShield Expanded Metal Co., Ltd." },
+    email: "info@yourmesh.com"
+  },
   nav: [
-    { id: "products", label: { zh: "产品", en: "Products" } },
-    { id: "process", label: { zh: "工艺", en: "Process" } },
-    { id: "cases", label: { zh: "案例", en: "Cases" } },
-    { id: "quality", label: { zh: "质量", en: "Quality" } },
-    { id: "quote", label: { zh: "询价", en: "Quote" } }
+    { id: "about", label: { zh: "关于我们", en: "About" } },
+    { id: "products", label: { zh: "产品中心", en: "Products" } },
+    { id: "why", label: { zh: "选择我们", en: "Why Us" } },
+    { id: "news", label: { zh: "新闻资讯", en: "News" } },
+    { id: "quality", label: { zh: "质量控制", en: "Quality" } },
+    { id: "quote", label: { zh: "联系我们", en: "Contact" } }
   ],
   sections: {
-    productsTitle: { zh: "产品矩阵", en: "Expanded Metal Portfolio" },
+    aboutTitle: { zh: "关于我们", en: "About Us" },
+    productsTitle: { zh: "产品中心", en: "Hot Products" },
     applicationsTitle: { zh: "应用场景", en: "Where It Works" },
     processTitle: { zh: "生产工艺", en: "Process Control" },
     casesTitle: { zh: "典型交付案例", en: "Representative Delivery Cases" },
+    whyChooseTitle: { zh: "为什么选择我们", en: "Why Choose Us" },
+    newsTitle: { zh: "新闻资讯", en: "Our News" },
     contactTitle: { zh: "在线询价与联系方式", en: "Quote Request & Contact" }
   },
   labels: {
@@ -45,6 +53,47 @@ module.exports = {
       { value: "7天", label: { zh: "快速交付", en: "Fast Delivery" } }
     ]
   },
+  heroSlides: [
+    {
+      eyebrow: { zh: "专业钢板网生产厂家", en: "Professional Expanded Metal Manufacturer" },
+      title: { zh: "重型钢板网\n平台与走道方案", en: "Heavy Expanded Metal\nFor Platforms & Walkways" },
+      subtitle: {
+        zh: "支持承载类工业项目，按图定制网孔、节距与表面处理。",
+        en: "Engineered for load-bearing projects with custom mesh opening, pitch, and surface treatment."
+      },
+      ctaPrimary: { zh: "获取方案", en: "Get Solution" },
+      ctaPrimaryHref: "#quote",
+      ctaSecondary: { zh: "查看产品", en: "View Products" },
+      ctaSecondaryHref: "#products",
+      bgImage: "images/hero-slide-1.svg"
+    },
+    {
+      eyebrow: { zh: "质量稳定 可追溯交付", en: "Stable Quality & Traceable Delivery" },
+      title: { zh: "不锈钢与镀锌\n多材质供货", en: "Stainless & Galvanized\nMulti-material Supply" },
+      subtitle: {
+        zh: "覆盖建筑、安防、筛分与工业平台，批量与定制并行。",
+        en: "Serving facade, security, screening, and industrial platform applications with both volume and custom orders."
+      },
+      ctaPrimary: { zh: "立即询价", en: "Request Quote" },
+      ctaPrimaryHref: "#quote",
+      ctaSecondary: { zh: "质量控制", en: "Quality Control" },
+      ctaSecondaryHref: "#quality",
+      bgImage: "images/hero-slide-2.svg"
+    },
+    {
+      eyebrow: { zh: "安平源头工厂", en: "Source Factory in Anping" },
+      title: { zh: "交期可控\n支持OEM项目", en: "Reliable Lead Time\nOEM Projects Supported" },
+      subtitle: {
+        zh: "从原材料到出厂复检全流程管控，支持图纸打样与批量交付。",
+        en: "Full process control from raw material to final inspection, with drawing-based sampling and batch delivery."
+      },
+      ctaPrimary: { zh: "联系工厂", en: "Contact Factory" },
+      ctaPrimaryHref: "#quote",
+      ctaSecondary: { zh: "关于我们", en: "About Us" },
+      ctaSecondaryHref: "#about",
+      bgImage: "images/hero-slide-3.svg"
+    }
+  ],
   trust: [
     {
       value: "120T/月",
@@ -66,7 +115,7 @@ module.exports = {
     title: { zh: "关于我们", en: "About Us" },
     headline: { zh: "扎根安平的钢板网厂家", en: "Anping-based expanded metal manufacturer" },
     description: {
-      zh: "我们专注钢板网生产与深加工，为建筑、工业、安防、筛分等领域提供可靠的网材方案。工厂配置多条冲剪拉伸生产线，支持批量订单与定制。",
+      zh: "我们专注钢板网生产与深加工，为建筑、工业、安防、筛分等领域提供可靠网材方案。工厂配置多条冲剪拉伸生产线，支持批量订单与定制。",
       en: "We focus on expanded metal production and fabrication for construction, industrial platforms, security, and screening. Multiple lines support both volume orders and custom work."
     },
     bullets: [
@@ -75,6 +124,64 @@ module.exports = {
       { zh: "小批量打样与大批量交付兼顾", en: "Both sampling and large-scale delivery" }
     ]
   },
+  whyChoose: {
+    title: { zh: "Quality First", en: "Quality First" },
+    headline: { zh: "为什么选择我们", en: "Why Choose Us" },
+    items: [
+      {
+        title: { zh: "技术实力", en: "Technical Strength" },
+        desc: { zh: "多条冲剪拉伸线，支持多材质与多孔型定制。", en: "Multiple production lines support custom materials and mesh patterns." },
+        icon: "01"
+      },
+      {
+        title: { zh: "质量控制", en: "Quality Control" },
+        desc: { zh: "关键尺寸全检，批次追溯，出厂前复检。", en: "Full inspection on key dimensions with traceable batch records." },
+        icon: "02"
+      },
+      {
+        title: { zh: "交付保障", en: "Reliable Delivery" },
+        desc: { zh: "标准规格快速排产，定制订单透明进度。", en: "Fast production for standard specs and transparent lead-time for custom orders." },
+        icon: "03"
+      },
+      {
+        title: { zh: "服务支持", en: "Service Support" },
+        desc: { zh: "支持图纸打样、参数建议与项目技术对接。", en: "Support for drawing-based sampling and engineering consultation." },
+        icon: "04"
+      }
+    ]
+  },
+  news: [
+    {
+      title: { zh: "不锈钢方孔网在过滤中的应用", en: "Stainless Wire Mesh in Filtration Applications" },
+      excerpt: {
+        zh: "介绍方孔网在化工与食品过滤场景中的选材和孔径建议。",
+        en: "A quick guide on material and aperture selection for chemical and food filtration scenarios."
+      },
+      href: "#quote",
+      image: "images/news-1.svg",
+      date: "2026-01-12"
+    },
+    {
+      title: { zh: "钢板网平台项目交付案例", en: "Delivery Case: Expanded Metal Platform" },
+      excerpt: {
+        zh: "从方案确认到交付验收，完整展示承载类项目执行流程。",
+        en: "From solution confirmation to acceptance, a full delivery walkthrough for load-bearing projects."
+      },
+      href: "#products",
+      image: "images/news-2.svg",
+      date: "2025-12-28"
+    },
+    {
+      title: { zh: "如何选择镀锌或不锈钢钢板网", en: "How to Choose Galvanized vs Stainless Mesh" },
+      excerpt: {
+        zh: "对比户外耐候与耐腐蚀环境下两类材质的适用边界。",
+        en: "Comparison of galvanized and stainless options for outdoor weathering and corrosion environments."
+      },
+      href: "#quality",
+      image: "images/news-3.svg",
+      date: "2025-11-19"
+    }
+  ],
   stats: [
     { value: "35+", label: { zh: "常规规格", en: "Standard Sizes" } },
     { value: "300+", label: { zh: "合作客户", en: "Customers Served" } },
@@ -84,22 +191,26 @@ module.exports = {
     {
       name: { zh: "重型钢板网", en: "Heavy Expanded Metal" },
       spec: { zh: "用于平台、走道、设备防护", en: "For platforms, walkways, safety guards" },
-      use: { zh: "承载力高，适合工业环境", en: "High load capacity for industrial use" }
+      use: { zh: "承载力高，适合工业环境", en: "High load capacity for industrial use" },
+      image: "images/product-1.svg"
     },
     {
       name: { zh: "标准菱形钢板网", en: "Standard Diamond Mesh" },
       spec: { zh: "适用于围栏、隔断、装饰", en: "For fencing, partitions, decoration" },
-      use: { zh: "性价比高，规格齐全", en: "Cost-effective with complete sizes" }
+      use: { zh: "性价比高，规格齐全", en: "Cost-effective with complete sizes" },
+      image: "images/product-2.svg"
     },
     {
       name: { zh: "不锈钢钢板网", en: "Stainless Expanded Metal" },
       spec: { zh: "耐腐蚀、耐高温", en: "Corrosion and heat resistant" },
-      use: { zh: "适合化工与食品环境", en: "For chemical and food industries" }
+      use: { zh: "适合化工与食品环境", en: "For chemical and food industries" },
+      image: "images/product-3.svg"
     },
     {
       name: { zh: "镀锌钢板网", en: "Galvanized Expanded Metal" },
       spec: { zh: "耐候、防锈，户外更稳定", en: "Weatherproof and rust resistant" },
-      use: { zh: "适合室外结构与围栏", en: "Ideal for outdoor structures" }
+      use: { zh: "适合室外结构与围栏", en: "Ideal for outdoor structures" },
+      image: "images/product-4.svg"
     }
   ],
   applications: [
@@ -125,19 +236,22 @@ module.exports = {
       title: { zh: "重型平台钢板网项目", en: "Heavy Platform Mesh Project" },
       industry: { zh: "工业平台", en: "Industrial Platform" },
       spec: { zh: "6mm 厚 Q235，定制网孔与防滑压平", en: "6mm Q235 with custom opening and anti-slip flattening" },
-      result: { zh: "25 吨订单 10 天交付，现场安装一次通过", en: "25-ton order delivered in 10 days with first-pass installation" }
+      result: { zh: "25 吨订单 10 天交付，现场安装一次通过", en: "25-ton order delivered in 10 days with first-pass installation" },
+      image: "images/case-1.svg"
     },
     {
       title: { zh: "化工车间防护围栏", en: "Chemical Plant Safety Fencing" },
       industry: { zh: "安防围护", en: "Safety Perimeter" },
       spec: { zh: "304 不锈钢钢板网，耐腐蚀处理", en: "304 stainless expanded metal with corrosion-resistant finish" },
-      result: { zh: "连续运行环境下稳定使用，维护成本显著下降", en: "Stable performance in continuous operation with lower maintenance cost" }
+      result: { zh: "连续运行环境下稳定使用，维护成本显著下降", en: "Stable performance in continuous operation with lower maintenance cost" },
+      image: "images/case-2.svg"
     },
     {
       title: { zh: "建筑幕墙装饰网项目", en: "Architectural Facade Mesh Project" },
       industry: { zh: "建筑装饰", en: "Architectural Facade" },
       spec: { zh: "铝板网喷涂定制色，满足通风与遮阳需求", en: "Coated aluminum mesh in custom color for airflow and shading" },
-      result: { zh: "外立面质感提升，兼顾透光与私密性", en: "Improved facade texture while balancing light and privacy" }
+      result: { zh: "外立面质感提升，兼顾透光与私密性", en: "Improved facade texture while balancing light and privacy" },
+      image: "images/case-3.svg"
     }
   ],
   process: [

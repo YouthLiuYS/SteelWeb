@@ -1,63 +1,75 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import LangText from "../LangText";
 import { siteData } from "@/content/siteData";
 
+const ROTATE_INTERVAL_MS = 6000;
+
 export default function HeroSection() {
+  const slides = useMemo(() => siteData.heroSlides, []);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (slides.length < 2) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, ROTATE_INTERVAL_MS);
+
+    return () => window.clearInterval(timer);
+  }, [slides]);
+
   return (
     <section className="hero" id="top">
-      <div className="container hero-layout reveal">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="eyebrow-line" aria-hidden="true" />
-            <LangText value={siteData.brand.location} />
-          </p>
-          <h1>
-            <LangText value={siteData.hero.title} />
-          </h1>
-          <p className="hero-subtitle">
-            <LangText value={siteData.hero.subtitle} />
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#quote">
-              <LangText value={siteData.hero.primaryCta} />
-            </a>
-            <a className="btn btn-ghost" href="#products">
-              <LangText value={siteData.hero.secondaryCta} />
-            </a>
-          </div>
-          <ul className="hero-points">
-            {siteData.hero.points.map((point, index) => (
-              <li key={`${point.zh}-${index}`}>
-                <span className="dot" aria-hidden="true" />
-                <LangText value={point} />
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="hero-backgrounds" aria-hidden="true">
+        {slides.map((slide, index) => (
+          <div
+            className={index === activeIndex ? "hero-bg active" : "hero-bg"}
+            key={`${slide.title.zh}-${index}`}
+            style={{ backgroundImage: `url(${slide.bgImage})` }}
+          />
+        ))}
+      </div>
 
-        <aside className="hero-panel">
-          <div className="hero-panel-grid">
-            {siteData.hero.highlights.map((item) => (
-              <article className="hero-kpi" key={item.value}>
-                <p className="hero-kpi-value">{item.value}</p>
-                <p className="hero-kpi-label">
-                  <LangText value={item.label} />
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="hero-panel-cta">
-            <h3>
-              <LangText value={siteData.cta.title} />
-            </h3>
-            <p>
-              <LangText value={siteData.cta.description} />
+      <div className="container hero-content reveal">
+        {slides.map((slide, index) => (
+          <article className={index === activeIndex ? "hero-slide active" : "hero-slide"} key={`${slide.subtitle.zh}-${index}`}>
+            <p className="hero-eyebrow">
+              <LangText value={slide.eyebrow} />
             </p>
-            <a className="text-link" href="#quote">
-              <LangText value={siteData.cta.button} />
-            </a>
-          </div>
-        </aside>
+            <h1 className="hero-title">
+              <LangText value={slide.title} />
+            </h1>
+            <p className="hero-subtitle">
+              <LangText value={slide.subtitle} />
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-solid" href={slide.ctaPrimaryHref}>
+                <LangText value={slide.ctaPrimary} />
+              </a>
+              {slide.ctaSecondary && slide.ctaSecondaryHref ? (
+                <a className="btn btn-outline" href={slide.ctaSecondaryHref}>
+                  <LangText value={slide.ctaSecondary} />
+                </a>
+              ) : null}
+            </div>
+          </article>
+        ))}
+
+        <div className="hero-dots" role="tablist" aria-label="Hero slides">
+          {slides.map((slide, index) => (
+            <button
+              aria-label={slide.title.en || slide.title.zh}
+              className={index === activeIndex ? "hero-dot active" : "hero-dot"}
+              key={`${slide.ctaPrimary.en}-${index}`}
+              onClick={() => setActiveIndex(index)}
+              type="button"
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

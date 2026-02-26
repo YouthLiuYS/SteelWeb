@@ -7,8 +7,7 @@ const contactLabel: LocalizedString = { zh: "联系方式（手机或邮箱）",
 const requirementLabel: LocalizedString = { zh: "需求描述", en: "Requirement Details" };
 const attachmentLabel: LocalizedString = { zh: "附件链接（可选）", en: "Attachment URL (Optional)" };
 const submitLabel: LocalizedString = { zh: "提交询价", en: "Submit Quote Request" };
-const panelTitle: LocalizedString = { zh: "直接联系", en: "Direct Contact" };
-const phoneCta: LocalizedString = { zh: "立即电话沟通", en: "Call Now" };
+const directLabel: LocalizedString = { zh: "联系方式", en: "Direct Contact" };
 const endpointWarning: LocalizedString = {
   zh: "请先在 content/company-data.js 中配置 quoteForm.endpoint 后再启用提交。",
   en: "Set quoteForm.endpoint in content/company-data.js before enabling submissions."
@@ -29,9 +28,9 @@ export default function QuoteSection() {
   const subject = `${siteData.quoteForm.subject.zh} / ${siteData.quoteForm.subject.en}`;
 
   return (
-    <section className="section section-surface" id="quote">
+    <section className="section section-light quote-section" id="quote">
       <div className="container quote-layout reveal">
-        <div className="quote-form-card">
+        <article className="quote-panel">
           <div className="section-head">
             <p className="section-kicker">
               <LangText value={getNavLabel("quote")} />
@@ -46,7 +45,7 @@ export default function QuoteSection() {
           </p>
 
           <form action={canSubmit ? endpoint : undefined} className="quote-form" method="POST">
-            <input type="hidden" name="_subject" value={subject} />
+            <input name="_subject" type="hidden" value={subject} />
 
             <label className="field">
               <span className="field-label">
@@ -76,25 +75,21 @@ export default function QuoteSection() {
               <input name="attachment" type="url" />
             </label>
 
-            <button className="btn btn-primary btn-full" disabled={!canSubmit} type="submit">
+            <button className="btn btn-solid btn-block" disabled={!canSubmit} type="submit">
               <LangText value={submitLabel} />
             </button>
           </form>
 
-          <p className={canSubmit ? "form-note" : "form-warning"}>
+          <p className={canSubmit ? "form-tip" : "form-warning"}>
             <LangText value={canSubmit ? siteData.quoteForm.successNote : endpointWarning} />
           </p>
-        </div>
+        </article>
 
-        <aside className="contact-card">
+        <aside className="contact-panel">
           <h3>
-            <LangText value={panelTitle} />
+            <LangText value={directLabel} />
           </h3>
-          <p className="muted">
-            <LangText value={siteData.brand.tagline} />
-          </p>
-
-          <div className="contact-list">
+          <div className="contact-group">
             <div>
               <p className="contact-label">
                 <LangText value={siteData.labels.phone} />
@@ -128,9 +123,8 @@ export default function QuoteSection() {
               </p>
             </div>
           </div>
-
-          <a className="btn btn-ghost btn-full" href={`tel:${siteData.contact.phone}`}>
-            <LangText value={phoneCta} />
+          <a className="btn btn-outline btn-block" href={`tel:${siteData.contact.phone}`}>
+            <LangText value={siteData.cta.button} />
           </a>
         </aside>
       </div>

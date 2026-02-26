@@ -17,14 +17,24 @@ function requireField(value, label) {
 function validate(data) {
   requireField(data.brand, "brand");
   requireField(data.brand.name, "brand.name");
+  requireField(data.topBar, "topBar");
+  requireField(data.topBar.companyShort, "topBar.companyShort");
+  requireField(data.topBar.email, "topBar.email");
   requireField(data.hero, "hero");
   requireField(data.hero.title, "hero.title");
+  requireField(data.heroSlides, "heroSlides");
+  requireField(data.heroSlides.length, "heroSlides.length");
   requireField(data.contact, "contact");
   requireField(data.contact.phone || data.contact.email, "contact.phone/contact.email");
   requireField(data.sections, "sections");
   requireField(data.labels, "labels");
   requireField(data.cta, "cta");
   requireField(data.quality, "quality");
+  requireField(data.whyChoose, "whyChoose");
+  requireField(data.whyChoose.title, "whyChoose.title");
+  requireField(data.whyChoose.items, "whyChoose.items");
+  requireField(data.news, "news");
+  requireField(data.news.length, "news.length");
   requireField(data.trust, "trust");
   requireField(data.cases, "cases");
   requireField(data.quoteForm, "quoteForm");
@@ -48,16 +58,38 @@ export type LocalizedString = { zh: string; en: string };
 
 export type NavItem = { id: string; label: LocalizedString };
 export type StatItem = { value: string; label: LocalizedString };
-export type ProductItem = { name: LocalizedString; spec: LocalizedString; use: LocalizedString };
+export type ProductItem = { name: LocalizedString; spec: LocalizedString; use: LocalizedString; image?: string };
 export type ApplicationItem = { title: LocalizedString; desc: LocalizedString };
 export type ProcessItem = { step: LocalizedString; detail: LocalizedString };
 export type TrustItem = { value: string; label: LocalizedString; note: LocalizedString };
+export type HeroSlideItem = {
+  eyebrow: LocalizedString;
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  ctaPrimary: LocalizedString;
+  ctaPrimaryHref: string;
+  ctaSecondary?: LocalizedString;
+  ctaSecondaryHref?: string;
+  bgImage: string;
+};
 export type CaseItem = {
   title: LocalizedString;
   industry: LocalizedString;
   spec: LocalizedString;
   result: LocalizedString;
   image?: string;
+};
+export type WhyChooseItem = {
+  title: LocalizedString;
+  desc: LocalizedString;
+  icon?: string;
+};
+export type NewsItem = {
+  title: LocalizedString;
+  excerpt: LocalizedString;
+  href: string;
+  image?: string;
+  date: string;
 };
 export type QuoteFormConfig = {
   provider: "formspree";
@@ -72,12 +104,19 @@ export type SiteData = {
     tagline: LocalizedString;
     location: LocalizedString;
   };
+  topBar: {
+    companyShort: LocalizedString;
+    email: string;
+  };
   nav: NavItem[];
   sections: {
+    aboutTitle: LocalizedString;
     productsTitle: LocalizedString;
     applicationsTitle: LocalizedString;
     processTitle: LocalizedString;
     casesTitle: LocalizedString;
+    whyChooseTitle: LocalizedString;
+    newsTitle: LocalizedString;
     contactTitle: LocalizedString;
   };
   labels: {
@@ -94,6 +133,7 @@ export type SiteData = {
     secondaryCta: LocalizedString;
     highlights: { value: string; label: LocalizedString }[];
   };
+  heroSlides: HeroSlideItem[];
   trust: TrustItem[];
   about: {
     title: LocalizedString;
@@ -101,6 +141,12 @@ export type SiteData = {
     description: LocalizedString;
     bullets: LocalizedString[];
   };
+  whyChoose: {
+    title: LocalizedString;
+    headline: LocalizedString;
+    items: WhyChooseItem[];
+  };
+  news: NewsItem[];
   stats: StatItem[];
   products: ProductItem[];
   applications: ApplicationItem[];

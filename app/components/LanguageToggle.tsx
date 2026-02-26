@@ -39,7 +39,7 @@ export default function LanguageToggle() {
   };
 
   return (
-    <div className="lang-toggle" role="group" aria-label="Language switch">
+    <div className="lang-switch" role="group" aria-label="Language switch">
       <button
         type="button"
         className={locale === "zh" ? "active" : ""}
@@ -47,6 +47,9 @@ export default function LanguageToggle() {
       >
         中文
       </button>
+      <span aria-hidden="true" className="lang-divider">
+        |
+      </span>
       <button
         type="button"
         className={locale === "en" ? "active" : ""}
