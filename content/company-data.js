@@ -7,18 +7,18 @@ module.exports = {
     location: { zh: "中国 河北 安平", en: "Anping, Hebei, China" }
   },
   nav: [
-    { id: "about", label: { zh: "公司", en: "Company" } },
     { id: "products", label: { zh: "产品", en: "Products" } },
-    { id: "applications", label: { zh: "应用", en: "Applications" } },
     { id: "process", label: { zh: "工艺", en: "Process" } },
+    { id: "cases", label: { zh: "案例", en: "Cases" } },
     { id: "quality", label: { zh: "质量", en: "Quality" } },
-    { id: "contact", label: { zh: "联系", en: "Contact" } }
+    { id: "quote", label: { zh: "询价", en: "Quote" } }
   ],
   sections: {
     productsTitle: { zh: "产品矩阵", en: "Expanded Metal Portfolio" },
     applicationsTitle: { zh: "应用场景", en: "Where It Works" },
     processTitle: { zh: "生产工艺", en: "Process Control" },
-    contactTitle: { zh: "联系与询价", en: "Contact & Quote" }
+    casesTitle: { zh: "典型交付案例", en: "Representative Delivery Cases" },
+    contactTitle: { zh: "在线询价与联系方式", en: "Quote Request & Contact" }
   },
   labels: {
     phone: { zh: "电话", en: "Phone" },
@@ -45,6 +45,23 @@ module.exports = {
       { value: "7天", label: { zh: "快速交付", en: "Fast Delivery" } }
     ]
   },
+  trust: [
+    {
+      value: "120T/月",
+      label: { zh: "月稳定产能", en: "Stable Monthly Capacity" },
+      note: { zh: "多条生产线协同交付", en: "Multi-line production for stable supply" }
+    },
+    {
+      value: "7-12天",
+      label: { zh: "常规交付周期", en: "Typical Lead Time" },
+      note: { zh: "标准规格快速出货", en: "Fast dispatch for standard specifications" }
+    },
+    {
+      value: "100%",
+      label: { zh: "关键尺寸全检", en: "Critical Dimension Inspection" },
+      note: { zh: "批次追溯与出厂复检", en: "Traceable batches with final inspection" }
+    }
+  ],
   about: {
     title: { zh: "关于我们", en: "About Us" },
     headline: { zh: "扎根安平的钢板网厂家", en: "Anping-based expanded metal manufacturer" },
@@ -103,6 +120,26 @@ module.exports = {
       desc: { zh: "孔型均匀，适合筛分、通风与过滤", en: "Uniform openings for screening and airflow" }
     }
   ],
+  cases: [
+    {
+      title: { zh: "重型平台钢板网项目", en: "Heavy Platform Mesh Project" },
+      industry: { zh: "工业平台", en: "Industrial Platform" },
+      spec: { zh: "6mm 厚 Q235，定制网孔与防滑压平", en: "6mm Q235 with custom opening and anti-slip flattening" },
+      result: { zh: "25 吨订单 10 天交付，现场安装一次通过", en: "25-ton order delivered in 10 days with first-pass installation" }
+    },
+    {
+      title: { zh: "化工车间防护围栏", en: "Chemical Plant Safety Fencing" },
+      industry: { zh: "安防围护", en: "Safety Perimeter" },
+      spec: { zh: "304 不锈钢钢板网，耐腐蚀处理", en: "304 stainless expanded metal with corrosion-resistant finish" },
+      result: { zh: "连续运行环境下稳定使用，维护成本显著下降", en: "Stable performance in continuous operation with lower maintenance cost" }
+    },
+    {
+      title: { zh: "建筑幕墙装饰网项目", en: "Architectural Facade Mesh Project" },
+      industry: { zh: "建筑装饰", en: "Architectural Facade" },
+      spec: { zh: "铝板网喷涂定制色，满足通风与遮阳需求", en: "Coated aluminum mesh in custom color for airflow and shading" },
+      result: { zh: "外立面质感提升，兼顾透光与私密性", en: "Improved facade texture while balancing light and privacy" }
+    }
+  ],
   process: [
     {
       step: { zh: "选材与检验", en: "Material Selection" },
@@ -155,6 +192,15 @@ module.exports = {
     },
     button: { zh: "立即咨询", en: "Contact Us" },
     note: { zh: "支持图纸与OEM项目", en: "Support for custom drawings and OEM projects." }
+  },
+  quoteForm: {
+    provider: "formspree",
+    endpoint: "YOUR_FORMSPREE_ENDPOINT",
+    subject: { zh: "官网询价线索", en: "Website Quote Request" },
+    successNote: {
+      zh: "提交后我们会在 1 个工作日内联系您，请保持电话或邮箱畅通。",
+      en: "We will contact you within 1 business day after submission."
+    }
   },
   footer: {
     copyright: {

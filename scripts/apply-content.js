@@ -25,12 +25,20 @@ function validate(data) {
   requireField(data.labels, "labels");
   requireField(data.cta, "cta");
   requireField(data.quality, "quality");
+  requireField(data.trust, "trust");
+  requireField(data.cases, "cases");
+  requireField(data.quoteForm, "quoteForm");
+  requireField(data.quoteForm.provider, "quoteForm.provider");
+  requireField(data.quoteForm.endpoint, "quoteForm.endpoint");
 
   if (!isLocalizedString(data.brand.name)) {
     throw new Error("brand.name 必须包含 zh/en");
   }
   if (!isLocalizedString(data.hero.title)) {
     throw new Error("hero.title 必须包含 zh/en");
+  }
+  if (data.quoteForm.provider !== "formspree") {
+    throw new Error('quoteForm.provider 目前仅支持 "formspree"');
   }
 }
 
@@ -43,6 +51,20 @@ export type StatItem = { value: string; label: LocalizedString };
 export type ProductItem = { name: LocalizedString; spec: LocalizedString; use: LocalizedString };
 export type ApplicationItem = { title: LocalizedString; desc: LocalizedString };
 export type ProcessItem = { step: LocalizedString; detail: LocalizedString };
+export type TrustItem = { value: string; label: LocalizedString; note: LocalizedString };
+export type CaseItem = {
+  title: LocalizedString;
+  industry: LocalizedString;
+  spec: LocalizedString;
+  result: LocalizedString;
+  image?: string;
+};
+export type QuoteFormConfig = {
+  provider: "formspree";
+  endpoint: string;
+  subject: LocalizedString;
+  successNote: LocalizedString;
+};
 
 export type SiteData = {
   brand: {
@@ -55,6 +77,7 @@ export type SiteData = {
     productsTitle: LocalizedString;
     applicationsTitle: LocalizedString;
     processTitle: LocalizedString;
+    casesTitle: LocalizedString;
     contactTitle: LocalizedString;
   };
   labels: {
@@ -71,6 +94,7 @@ export type SiteData = {
     secondaryCta: LocalizedString;
     highlights: { value: string; label: LocalizedString }[];
   };
+  trust: TrustItem[];
   about: {
     title: LocalizedString;
     headline: LocalizedString;
@@ -80,6 +104,7 @@ export type SiteData = {
   stats: StatItem[];
   products: ProductItem[];
   applications: ApplicationItem[];
+  cases: CaseItem[];
   process: ProcessItem[];
   quality: {
     title: LocalizedString;
@@ -101,6 +126,7 @@ export type SiteData = {
     button: LocalizedString;
     note: LocalizedString;
   };
+  quoteForm: QuoteFormConfig;
   footer: {
     copyright: LocalizedString;
   };

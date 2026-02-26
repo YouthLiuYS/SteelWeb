@@ -5,3 +5,5 @@ node_modules/
 *.log
 *.tsbuildinfo
 /.env*
+.deploy-gitee/
+.npm-cache/

@@ -28,10 +28,8 @@ export default function LanguageToggle() {
       return;
     }
 
-    const browserLang = navigator.language.toLowerCase();
-    const defaultLocale: Locale = browserLang.startsWith("en") ? "en" : "zh";
-    setLocale(defaultLocale);
-    applyLocale(defaultLocale);
+    setLocale("zh");
+    applyLocale("zh");
   }, []);
 
   const handleSwitch = (nextLocale: Locale) => {

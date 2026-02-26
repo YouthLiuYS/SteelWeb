@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:github": "SITE_BASE_PATH=/SteelWeb next build",
+    "build:gitee": "SITE_BASE_PATH=/SteelWeb next build",
     "start": "next start",
-    "content:apply": "node scripts/apply-content.js"
+    "content:apply": "node scripts/apply-content.js",
+    "prepare:static": "npm run content:apply && npm run build",
+    "prepare:static:gitee": "npm run content:apply && npm run build:gitee",
+    "deploy:gitee": "bash scripts/deploy-gitee.sh"
   },
   "dependencies": {
     "next": "14.2.3",
