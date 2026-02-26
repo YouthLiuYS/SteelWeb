@@ -1,5 +1,6 @@
 import "./globals.css";
 import { siteData } from "@/content/siteData";
+import SiteFooter from "./components/SiteFooter";
 
 export const metadata = {
   title: siteData.seo.title.zh,
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="zh-CN" data-lang="zh">
       <body className="antialiased">
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

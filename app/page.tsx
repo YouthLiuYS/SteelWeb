@@ -96,22 +96,6 @@ export default function Home() {
 
         <QuoteSection />
       </main>
-
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <div>
-            <p className="logo-name">
-              <LangText value={siteData.brand.name} />
-            </p>
-            <p className="logo-tagline">
-              <LangText value={siteData.brand.tagline} />
-            </p>
-          </div>
-          <p className="footer-meta">
-            <LangText value={siteData.footer.copyright} />
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

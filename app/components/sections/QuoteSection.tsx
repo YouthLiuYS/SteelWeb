@@ -22,10 +22,16 @@ function isEndpointReady(endpoint: string) {
   return endpoint.length > 0 && !placeholderPattern.test(endpoint);
 }
 
+function buildWhatsAppHref(value: string) {
+  const digits = value.replace(/[^\d]/g, "");
+  return digits ? `https://wa.me/${digits}` : "";
+}
+
 export default function QuoteSection() {
   const endpoint = (siteData.quoteForm.endpoint ?? "").trim();
   const canSubmit = isEndpointReady(endpoint);
   const subject = `${siteData.quoteForm.subject.zh} / ${siteData.quoteForm.subject.en}`;
+  const whatsappHref = buildWhatsAppHref(siteData.contact.whatsapp);
 
   return (
     <section className="section section-light quote-section" id="quote">
@@ -121,6 +127,24 @@ export default function QuoteSection() {
               <p className="contact-value">
                 <LangText value={siteData.contact.hours} />
               </p>
+            </div>
+            <div>
+              <p className="contact-label">
+                <LangText value={siteData.labels.wechat} />
+              </p>
+              <p className="contact-value">{siteData.contact.wechat}</p>
+            </div>
+            <div>
+              <p className="contact-label">
+                <LangText value={siteData.labels.whatsapp} />
+              </p>
+              {whatsappHref ? (
+                <a className="contact-value" href={whatsappHref} rel="noopener noreferrer" target="_blank">
+                  {siteData.contact.whatsapp}
+                </a>
+              ) : (
+                <p className="contact-value">{siteData.contact.whatsapp}</p>
+              )}
             </div>
           </div>
           <a className="btn btn-outline btn-block" href={`tel:${siteData.contact.phone}`}>

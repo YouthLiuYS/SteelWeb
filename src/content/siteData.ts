@@ -39,6 +39,11 @@ export type NewsItem = {
   image?: string;
   date: string;
 };
+export type SocialLinkItem = {
+  platform: LocalizedString;
+  handle: string;
+  url: string;
+};
 export type QuoteFormConfig = {
   provider: "formspree";
   endpoint: string;
@@ -72,6 +77,8 @@ export type SiteData = {
     email: LocalizedString;
     address: LocalizedString;
     hours: LocalizedString;
+    wechat: LocalizedString;
+    whatsapp: LocalizedString;
   };
   hero: {
     title: LocalizedString;
@@ -113,7 +120,10 @@ export type SiteData = {
     email: string;
     address: LocalizedString;
     hours: LocalizedString;
+    wechat: string;
+    whatsapp: string;
   };
+  socialLinks: SocialLinkItem[];
   cta: {
     title: LocalizedString;
     description: LocalizedString;
@@ -247,6 +257,14 @@ export const siteData: SiteData = {
     "hours": {
       "zh": "时间",
       "en": "Hours"
+    },
+    "wechat": {
+      "zh": "微信",
+      "en": "WeChat"
+    },
+    "whatsapp": {
+      "zh": "WhatsApp",
+      "en": "WhatsApp"
     }
   },
   "hero": {
@@ -831,8 +849,44 @@ export const siteData: SiteData = {
     "hours": {
       "zh": "工作日 8:30 - 18:00",
       "en": "Mon-Fri 8:30 - 18:00"
-    }
+    },
+    "wechat": "SteelShieldMesh",
+    "whatsapp": "+86 186 0000 0000"
   },
+  "socialLinks": [
+    {
+      "platform": {
+        "zh": "抖音",
+        "en": "Douyin"
+      },
+      "handle": "@SteelShieldMesh",
+      "url": "https://www.douyin.com/"
+    },
+    {
+      "platform": {
+        "zh": "小红书",
+        "en": "Xiaohongshu"
+      },
+      "handle": "@SteelShieldMesh",
+      "url": "https://www.xiaohongshu.com/"
+    },
+    {
+      "platform": {
+        "zh": "微信视频号",
+        "en": "WeChat Channels"
+      },
+      "handle": "@SteelShieldMesh",
+      "url": "https://channels.weixin.qq.com/"
+    },
+    {
+      "platform": {
+        "zh": "LinkedIn",
+        "en": "LinkedIn"
+      },
+      "handle": "SteelShield Expanded Metal",
+      "url": "https://www.linkedin.com/"
+    }
+  ],
   "cta": {
     "title": {
       "zh": "把规格交给我们",

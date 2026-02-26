@@ -32,7 +32,9 @@ module.exports = {
     phone: { zh: "电话", en: "Phone" },
     email: { zh: "邮箱", en: "Email" },
     address: { zh: "地址", en: "Address" },
-    hours: { zh: "时间", en: "Hours" }
+    hours: { zh: "时间", en: "Hours" },
+    wechat: { zh: "微信", en: "WeChat" },
+    whatsapp: { zh: "WhatsApp", en: "WhatsApp" }
   },
   hero: {
     title: { zh: "专注钢板网制造与定制", en: "Focused on Expanded Metal Manufacturing" },
@@ -296,8 +298,32 @@ module.exports = {
     phone: "400-000-0000",
     email: "info@yourmesh.com",
     address: { zh: "河北省衡水市安平县工业园区（示例地址）", en: "Industrial Park, Anping, Hebei (Sample Address)" },
-    hours: { zh: "工作日 8:30 - 18:00", en: "Mon-Fri 8:30 - 18:00" }
+    hours: { zh: "工作日 8:30 - 18:00", en: "Mon-Fri 8:30 - 18:00" },
+    wechat: "SteelShieldMesh",
+    whatsapp: "+86 186 0000 0000"
   },
+  socialLinks: [
+    {
+      platform: { zh: "抖音", en: "Douyin" },
+      handle: "@SteelShieldMesh",
+      url: "https://www.douyin.com/"
+    },
+    {
+      platform: { zh: "小红书", en: "Xiaohongshu" },
+      handle: "@SteelShieldMesh",
+      url: "https://www.xiaohongshu.com/"
+    },
+    {
+      platform: { zh: "微信视频号", en: "WeChat Channels" },
+      handle: "@SteelShieldMesh",
+      url: "https://channels.weixin.qq.com/"
+    },
+    {
+      platform: { zh: "LinkedIn", en: "LinkedIn" },
+      handle: "SteelShield Expanded Metal",
+      url: "https://www.linkedin.com/"
+    }
+  ],
   cta: {
     title: { zh: "把规格交给我们", en: "Send Us Your Specifications" },
     description: {

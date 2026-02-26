@@ -26,6 +26,10 @@ function validate(data) {
   requireField(data.heroSlides.length, "heroSlides.length");
   requireField(data.contact, "contact");
   requireField(data.contact.phone || data.contact.email, "contact.phone/contact.email");
+  requireField(data.contact.wechat, "contact.wechat");
+  requireField(data.contact.whatsapp, "contact.whatsapp");
+  requireField(data.socialLinks, "socialLinks");
+  requireField(data.socialLinks.length, "socialLinks.length");
   requireField(data.sections, "sections");
   requireField(data.labels, "labels");
   requireField(data.cta, "cta");
@@ -91,6 +95,11 @@ export type NewsItem = {
   image?: string;
   date: string;
 };
+export type SocialLinkItem = {
+  platform: LocalizedString;
+  handle: string;
+  url: string;
+};
 export type QuoteFormConfig = {
   provider: "formspree";
   endpoint: string;
@@ -124,6 +133,8 @@ export type SiteData = {
     email: LocalizedString;
     address: LocalizedString;
     hours: LocalizedString;
+    wechat: LocalizedString;
+    whatsapp: LocalizedString;
   };
   hero: {
     title: LocalizedString;
@@ -165,7 +176,10 @@ export type SiteData = {
     email: string;
     address: LocalizedString;
     hours: LocalizedString;
+    wechat: string;
+    whatsapp: string;
   };
+  socialLinks: SocialLinkItem[];
   cta: {
     title: LocalizedString;
     description: LocalizedString;
