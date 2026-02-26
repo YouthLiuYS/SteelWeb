@@ -8,6 +8,7 @@ const ROTATE_INTERVAL_MS = 6000;
 
 export default function HeroSection() {
   const slides = useMemo(() => siteData.heroSlides, []);
+  const highlights = useMemo(() => siteData.hero.highlights, []);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -46,6 +47,16 @@ export default function HeroSection() {
             <p className="hero-subtitle">
               <LangText value={slide.subtitle} />
             </p>
+            <div className="hero-highlights" aria-label="Factory strengths">
+              {highlights.map((item, itemIndex) => (
+                <article className="hero-highlight" key={`${item.value}-${itemIndex}`}>
+                  <p className="hero-highlight-value">{item.value}</p>
+                  <p className="hero-highlight-label">
+                    <LangText value={item.label} />
+                  </p>
+                </article>
+              ))}
+            </div>
             <div className="hero-actions">
               <a className="btn btn-solid" href={slide.ctaPrimaryHref}>
                 <LangText value={slide.ctaPrimary} />

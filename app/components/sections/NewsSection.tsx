@@ -1,8 +1,10 @@
+import Link from "next/link";
 import LangText from "../LangText";
 import { LocalizedString, siteData } from "@/content/siteData";
 
 const fallbackLabel: LocalizedString = { zh: "", en: "" };
 const moreLabel: LocalizedString = { zh: "更多", en: "Read More" };
+const sectionMoreLabel: LocalizedString = { zh: "进入新闻页面", en: "Open News Page" };
 
 function getNavLabel(id: string) {
   return siteData.nav.find((item) => item.id === id)?.label ?? fallbackLabel;
@@ -16,9 +18,14 @@ export default function NewsSection() {
           <p className="section-kicker">
             <LangText value={getNavLabel("news")} />
           </p>
-          <h2>
-            <LangText value={siteData.sections.newsTitle} />
-          </h2>
+          <div className="section-head-row">
+            <h2>
+              <LangText value={siteData.sections.newsTitle} />
+            </h2>
+            <Link className="section-link-btn" href="/news/">
+              <LangText value={sectionMoreLabel} />
+            </Link>
+          </div>
         </div>
 
         <div className="news-grid">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LangText from "../LangText";
 import { LocalizedString, siteData } from "@/content/siteData";
 
@@ -8,6 +9,7 @@ const requirementLabel: LocalizedString = { zh: "需求描述", en: "Requirement
 const attachmentLabel: LocalizedString = { zh: "附件链接（可选）", en: "Attachment URL (Optional)" };
 const submitLabel: LocalizedString = { zh: "提交询价", en: "Submit Quote Request" };
 const directLabel: LocalizedString = { zh: "联系方式", en: "Direct Contact" };
+const moreLabel: LocalizedString = { zh: "进入联系页面", en: "Open Contact Page" };
 const endpointWarning: LocalizedString = {
   zh: "请先在 content/company-data.js 中配置 quoteForm.endpoint 后再启用提交。",
   en: "Set quoteForm.endpoint in content/company-data.js before enabling submissions."
@@ -27,7 +29,11 @@ function buildWhatsAppHref(value: string) {
   return digits ? `https://wa.me/${digits}` : "";
 }
 
-export default function QuoteSection() {
+type QuoteSectionProps = {
+  showPageLink?: boolean;
+};
+
+export default function QuoteSection({ showPageLink = true }: QuoteSectionProps) {
   const endpoint = (siteData.quoteForm.endpoint ?? "").trim();
   const canSubmit = isEndpointReady(endpoint);
   const subject = `${siteData.quoteForm.subject.zh} / ${siteData.quoteForm.subject.en}`;
@@ -41,9 +47,16 @@ export default function QuoteSection() {
             <p className="section-kicker">
               <LangText value={getNavLabel("quote")} />
             </p>
-            <h2>
-              <LangText value={siteData.sections.contactTitle} />
-            </h2>
+            <div className="section-head-row">
+              <h2>
+                <LangText value={siteData.sections.contactTitle} />
+              </h2>
+              {showPageLink ? (
+                <Link className="section-link-btn" href="/contact/">
+                  <LangText value={moreLabel} />
+                </Link>
+              ) : null}
+            </div>
           </div>
 
           <p className="section-desc">

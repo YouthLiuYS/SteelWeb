@@ -1,8 +1,10 @@
+import Link from "next/link";
 import LangText from "../LangText";
 import { LocalizedString, siteData } from "@/content/siteData";
 
 const fallbackLabel: LocalizedString = { zh: "", en: "" };
 const imageAlt: LocalizedString = { zh: "工厂与生产示意图", en: "Factory and production visual" };
+const moreLabel: LocalizedString = { zh: "进入关于页面", en: "Open About Page" };
 
 function getNavLabel(id: string) {
   return siteData.nav.find((item) => item.id === id)?.label ?? fallbackLabel;
@@ -17,9 +19,14 @@ export default function AboutSection() {
             <p className="section-kicker">
               <LangText value={getNavLabel("about")} />
             </p>
-            <h2>
-              <LangText value={siteData.about.headline} />
-            </h2>
+            <div className="section-head-row">
+              <h2>
+                <LangText value={siteData.about.headline} />
+              </h2>
+              <Link className="section-link-btn" href="/about/">
+                <LangText value={moreLabel} />
+              </Link>
+            </div>
           </div>
           <p className="section-desc about-desc">
             <LangText value={siteData.about.description} />

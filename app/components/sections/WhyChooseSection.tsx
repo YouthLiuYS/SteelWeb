@@ -1,7 +1,9 @@
+import Link from "next/link";
 import LangText from "../LangText";
 import { LocalizedString, siteData } from "@/content/siteData";
 
 const fallbackLabel: LocalizedString = { zh: "", en: "" };
+const moreLabel: LocalizedString = { zh: "进入优势页面", en: "Open Why Us Page" };
 
 function getNavLabel(id: string) {
   return siteData.nav.find((item) => item.id === id)?.label ?? fallbackLabel;
@@ -15,9 +17,14 @@ export default function WhyChooseSection() {
           <p className="section-kicker light">
             <LangText value={getNavLabel("why")} />
           </p>
-          <h2 className="section-title-light">
-            <LangText value={siteData.whyChoose.headline} />
-          </h2>
+          <div className="section-head-row center-row">
+            <h2 className="section-title-light">
+              <LangText value={siteData.whyChoose.headline} />
+            </h2>
+            <Link className="section-link-btn light" href="/why/">
+              <LangText value={moreLabel} />
+            </Link>
+          </div>
           <p className="section-desc light-desc">
             <LangText value={siteData.cta.description} />
           </p>

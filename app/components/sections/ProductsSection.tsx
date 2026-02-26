@@ -1,8 +1,11 @@
+import Link from "next/link";
 import LangText from "../LangText";
 import { LocalizedString, siteData } from "@/content/siteData";
+import { featuredProducts } from "@/content/productCatalog";
 
 const fallbackLabel: LocalizedString = { zh: "", en: "" };
-const moreLabel: LocalizedString = { zh: "更多详情", en: "More Details" };
+const moreLabel: LocalizedString = { zh: "查看详情", en: "View Details" };
+const sectionMoreLabel: LocalizedString = { zh: "进入产品页面", en: "Open Product Page" };
 
 function getNavLabel(id: string) {
   return siteData.nav.find((item) => item.id === id)?.label ?? fallbackLabel;
@@ -16,14 +19,19 @@ export default function ProductsSection() {
           <p className="section-kicker">
             <LangText value={getNavLabel("products")} />
           </p>
-          <h2>
-            <LangText value={siteData.sections.productsTitle} />
-          </h2>
+          <div className="section-head-row">
+            <h2>
+              <LangText value={siteData.sections.productsTitle} />
+            </h2>
+            <Link className="section-link-btn" href="/products/">
+              <LangText value={sectionMoreLabel} />
+            </Link>
+          </div>
         </div>
 
         <div className="products-grid">
-          {siteData.products.map((product, index) => (
-            <article className="product-tile" key={`${product.name.zh}-${index}`}>
+          {featuredProducts.map((product) => (
+            <article className="product-tile" key={product.slug}>
               <div className="product-media">
                 <img alt={product.name.en || product.name.zh} loading="lazy" src={product.image ?? "images/product-placeholder.svg"} />
                 <div className="product-overlay" aria-hidden="true" />
@@ -38,9 +46,9 @@ export default function ProductsSection() {
                 <p>
                   <LangText value={product.use} />
                 </p>
-                <a className="product-link" href="#quote">
+                <Link className="product-link" href={`/products/${product.slug}/`}>
                   <LangText value={moreLabel} />
-                </a>
+                </Link>
               </div>
             </article>
           ))}
