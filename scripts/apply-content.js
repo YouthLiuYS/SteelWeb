@@ -54,6 +54,15 @@ function validate(data) {
   if (data.quoteForm.provider !== "formspree") {
     throw new Error('quoteForm.provider 目前仅支持 "formspree"');
   }
+  data.socialLinks.forEach((item, index) => {
+    requireField(item.platform, `socialLinks[${index}].platform`);
+    requireField(item.handle, `socialLinks[${index}].handle`);
+    requireField(item.url, `socialLinks[${index}].url`);
+    requireField(item.qrImage, `socialLinks[${index}].qrImage`);
+    if (!isLocalizedString(item.platform)) {
+      throw new Error(`socialLinks[${index}].platform 必须包含 zh/en`);
+    }
+  });
 }
 
 function buildTypeDefs() {
@@ -99,6 +108,7 @@ export type SocialLinkItem = {
   platform: LocalizedString;
   handle: string;
   url: string;
+  qrImage: string;
 };
 export type QuoteFormConfig = {
   provider: "formspree";

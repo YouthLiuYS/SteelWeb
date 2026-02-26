@@ -43,6 +43,7 @@ export type SocialLinkItem = {
   platform: LocalizedString;
   handle: string;
   url: string;
+  qrImage: string;
 };
 export type QuoteFormConfig = {
   provider: "formspree";
@@ -860,7 +861,8 @@ export const siteData: SiteData = {
         "en": "Douyin"
       },
       "handle": "@SteelShieldMesh",
-      "url": "https://www.douyin.com/"
+      "url": "https://www.douyin.com/",
+      "qrImage": "images/qr-douyin.svg"
     },
     {
       "platform": {
@@ -868,7 +870,8 @@ export const siteData: SiteData = {
         "en": "Xiaohongshu"
       },
       "handle": "@SteelShieldMesh",
-      "url": "https://www.xiaohongshu.com/"
+      "url": "https://www.xiaohongshu.com/",
+      "qrImage": "images/qr-xiaohongshu.svg"
     },
     {
       "platform": {
@@ -876,7 +879,8 @@ export const siteData: SiteData = {
         "en": "WeChat Channels"
       },
       "handle": "@SteelShieldMesh",
-      "url": "https://channels.weixin.qq.com/"
+      "url": "https://channels.weixin.qq.com/",
+      "qrImage": "images/qr-wechat-channels.svg"
     },
     {
       "platform": {
@@ -884,7 +888,8 @@ export const siteData: SiteData = {
         "en": "LinkedIn"
       },
       "handle": "SteelShield Expanded Metal",
-      "url": "https://www.linkedin.com/"
+      "url": "https://www.linkedin.com/",
+      "qrImage": "images/qr-linkedin.svg"
     }
   ],
   "cta": {

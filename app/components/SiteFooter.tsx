@@ -3,6 +3,7 @@ import { LocalizedString, siteData } from "@/content/siteData";
 
 const contactTitle: LocalizedString = { zh: "联系方式", en: "Contact" };
 const socialTitle: LocalizedString = { zh: "社交媒体", en: "Social Media" };
+const qrAltSuffix: LocalizedString = { zh: "二维码", en: "QR Code" };
 
 function buildWhatsAppHref(value: string) {
   const digits = value.replace(/[^\d]/g, "");
@@ -93,10 +94,20 @@ export default function SiteFooter() {
             {siteData.socialLinks.map((item, index) => (
               <li key={`${item.handle}-${index}`}>
                 <a className="social-link" href={item.url} rel="noopener noreferrer" target="_blank">
-                  <span className="social-platform">
-                    <LangText value={item.platform} />
-                  </span>
-                  <span className="social-handle">{item.handle}</span>
+                  <div className="social-qr-wrap">
+                    <img
+                      alt={`${item.platform.en} ${qrAltSuffix.en}`}
+                      className="social-qr"
+                      loading="lazy"
+                      src={item.qrImage || "images/qr-placeholder.svg"}
+                    />
+                  </div>
+                  <div className="social-copy">
+                    <span className="social-platform">
+                      <LangText value={item.platform} />
+                    </span>
+                    <span className="social-handle">{item.handle}</span>
+                  </div>
                 </a>
               </li>
             ))}

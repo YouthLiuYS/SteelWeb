@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Xiaohongshu QR">
+  <rect width="240" height="240" fill="#ffffff"/>
+  <rect x="16" y="16" width="56" height="56" fill="#111111"/>
+  <rect x="24" y="24" width="40" height="40" fill="#ffffff"/>
+  <rect x="32" y="32" width="24" height="24" fill="#111111"/>
+  <rect x="168" y="16" width="56" height="56" fill="#111111"/>
+  <rect x="176" y="24" width="40" height="40" fill="#ffffff"/>
+  <rect x="184" y="32" width="24" height="24" fill="#111111"/>
+  <rect x="16" y="168" width="56" height="56" fill="#111111"/>
+  <rect x="24" y="176" width="40" height="40" fill="#ffffff"/>
+  <rect x="32" y="184" width="24" height="24" fill="#111111"/>
+  <rect x="84" y="84" width="12" height="12" fill="#111111"/>
+  <rect x="100" y="84" width="12" height="12" fill="#111111"/>
+  <rect x="132" y="84" width="12" height="12" fill="#111111"/>
+  <rect x="148" y="84" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="100" width="12" height="12" fill="#111111"/>
+  <rect x="116" y="100" width="12" height="12" fill="#111111"/>
+  <rect x="132" y="100" width="12" height="12" fill="#111111"/>
+  <rect x="164" y="100" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="116" width="12" height="12" fill="#111111"/>
+  <rect x="100" y="116" width="12" height="12" fill="#111111"/>
+  <rect x="132" y="116" width="12" height="12" fill="#111111"/>
+  <rect x="148" y="116" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="132" width="12" height="12" fill="#111111"/>
+  <rect x="116" y="132" width="12" height="12" fill="#111111"/>
+  <rect x="132" y="132" width="12" height="12" fill="#111111"/>
+  <rect x="164" y="132" width="12" height="12" fill="#111111"/>
+  <rect x="84" y="148" width="12" height="12" fill="#111111"/>
+  <rect x="100" y="148" width="12" height="12" fill="#111111"/>
+  <rect x="148" y="148" width="12" height="12" fill="#111111"/>
+  <rect x="164" y="148" width="12" height="12" fill="#111111"/>
+  <rect x="176" y="176" width="16" height="16" fill="#111111"/>
+  <rect x="196" y="196" width="16" height="16" fill="#111111"/>
+  <rect x="0" y="212" width="240" height="28" fill="#111111"/>
+  <text x="120" y="231" text-anchor="middle" font-size="14" font-family="Arial, sans-serif" fill="#ffffff">XIAOHONGSHU</text>
+</svg>
