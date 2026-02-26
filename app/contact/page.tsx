@@ -13,6 +13,9 @@ const pageDesc: LocalizedString = {
 };
 const productsLabel: LocalizedString = { zh: "浏览产品中心", en: "Browse Products" };
 const mediaTitle: LocalizedString = { zh: "社交与企业渠道", en: "Social & Business Channels" };
+const directLabel: LocalizedString = { zh: "直联沟通", en: "Direct" };
+const quickContactLabel: LocalizedString = { zh: "快速联系", en: "Quick Contact" };
+const aboutLabel: LocalizedString = { zh: "关于我们", en: "About Us" };
 
 function buildWhatsAppHref(value: string) {
   const digits = value.replace(/[^\d]/g, "");
@@ -67,8 +70,12 @@ export default function ContactPage() {
 
           <article className="info-card compact-card">
             <div className="section-head">
-              <p className="section-kicker">Direct</p>
-              <h2>Quick Contact</h2>
+              <p className="section-kicker">
+                <LangText value={directLabel} />
+              </p>
+              <h2>
+                <LangText value={quickContactLabel} />
+              </h2>
             </div>
 
             <div className="quick-links">
@@ -86,7 +93,7 @@ export default function ContactPage() {
                 <span className="quick-link">{siteData.contact.whatsapp}</span>
               )}
               <Link className="quick-link" href="/about/">
-                关于我们 / About Us
+                <LangText value={aboutLabel} />
               </Link>
             </div>
           </article>

@@ -10,6 +10,7 @@ const processLabel: LocalizedString = { zh: "质量节点", en: "QC Stages" };
 const certLabel: LocalizedString = { zh: "认证与标准", en: "Certifications" };
 const quoteLabel: LocalizedString = { zh: "提交需求", en: "Send Requirements" };
 const productLabel: LocalizedString = { zh: "查看产品", en: "View Products" };
+const processSectionTitle: LocalizedString = { zh: "生产工艺与检验节点", en: "Process & Inspection Nodes" };
 
 export default function QualityPage() {
   return (
@@ -78,7 +79,7 @@ export default function QualityPage() {
               <LangText value={processLabel} />
             </p>
             <h2>
-              生产工艺与检验节点 / Process & Inspection
+              <LangText value={processSectionTitle} />
             </h2>
           </div>
 

@@ -14,6 +14,8 @@ const quoteLabel: LocalizedString = { zh: "咨询项目", en: "Discuss Your Proj
 const productsLabel: LocalizedString = { zh: "查看产品中心", en: "View Product Center" };
 const moreLabel: LocalizedString = { zh: "继续阅读", en: "Continue" };
 const quickTitle: LocalizedString = { zh: "快速入口", en: "Quick Links" };
+const qualityLabel: LocalizedString = { zh: "质量控制", en: "Quality" };
+const aboutLabel: LocalizedString = { zh: "关于我们", en: "About Us" };
 
 function resolveNewsHref(href: string) {
   const mapping: Record<string, string> = {
@@ -99,13 +101,13 @@ export default function NewsPage() {
                 <LangText value={productsLabel} />
               </Link>
               <Link className="quick-link" href="/quality/">
-                质量控制 / Quality
+                <LangText value={qualityLabel} />
               </Link>
               <Link className="quick-link" href="/contact/">
                 <LangText value={quoteLabel} />
               </Link>
               <Link className="quick-link" href="/about/">
-                关于我们 / About Us
+                <LangText value={aboutLabel} />
               </Link>
             </div>
           </aside>
