@@ -34,6 +34,7 @@ export default function HeroSection() {
           />
         ))}
       </div>
+      <div aria-hidden="true" className="hero-mesh" />
 
       <div className="container hero-content reveal">
         {slides.map((slide, index) => (

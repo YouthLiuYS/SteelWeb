@@ -39,6 +39,7 @@ export default function ModuleHero({
 }: ModuleHeroProps) {
   return (
     <section className="module-hero">
+      <div aria-hidden="true" className="module-hero-mesh" />
       <div className="container module-hero-layout reveal">
         <div className="module-hero-copy">
           <p className="module-kicker">

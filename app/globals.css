@@ -527,6 +527,47 @@ p {
   animation: fluid-drift-a 24s ease-in-out infinite;
 }
 
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at 64% 36%, #000 0%, transparent 76%);
+  opacity: 0.34;
+  animation: mesh-drift 16s linear infinite;
+}
+
+.hero-mesh::before,
+.hero-mesh::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  pointer-events: none;
+}
+
+.hero-mesh::before {
+  background: repeating-radial-gradient(
+    circle at 68% 34%,
+    rgba(154, 209, 255, 0.24) 0 1px,
+    rgba(154, 209, 255, 0) 1px 15px,
+    rgba(255, 210, 126, 0.15) 15px 16px,
+    rgba(255, 210, 126, 0) 16px 30px
+  );
+  opacity: 0.36;
+  mix-blend-mode: screen;
+  animation: wave-pulse 11s ease-in-out infinite;
+}
+
+.hero-mesh::after {
+  background: radial-gradient(circle at 66% 34%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 54%);
+  opacity: 0.42;
+  animation: wave-focus 8s ease-in-out infinite;
+}
+
 .hero-backgrounds {
   position: absolute;
   inset: 0;
@@ -834,12 +875,19 @@ p {
   border: 1px solid var(--line-soft);
   background: #fff;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
   position: relative;
+  transform:
+    perspective(980px)
+    rotateX(var(--tilt-rotate-x, 0deg))
+    rotateY(var(--tilt-rotate-y, 0deg))
+    translateY(var(--card-raise, 0px));
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .product-tile:hover {
-  transform: translateY(-2px);
+  --card-raise: -2px;
   box-shadow: 0 16px 36px rgba(8, 30, 64, 0.2);
 }
 
@@ -865,8 +913,35 @@ p {
   transform: translateX(500%) rotate(16deg);
 }
 
+.product-tile::after,
+.news-card::after,
+.category-card::after,
+.info-card::after,
+.trust-card::after,
+.detail-card::after,
+.module-metric::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(240px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(121, 190, 255, 0.26), rgba(255, 212, 141, 0.12) 30%, rgba(121, 190, 255, 0) 66%);
+  transition: opacity 0.24s ease;
+}
+
+.is-glow-active::after {
+  opacity: 1;
+}
+
+.is-tilt-active.product-tile,
+.is-tilt-active.category-card {
+  box-shadow: 0 20px 40px rgba(8, 30, 64, 0.24);
+}
+
 .product-media {
   position: relative;
+  transform: translateZ(9px);
 }
 
 .product-media img {
@@ -883,6 +958,9 @@ p {
 
 .product-content {
   padding: 18px;
+  transform: translateZ(10px);
+  position: relative;
+  z-index: 2;
 }
 
 .product-content .muted {
@@ -1196,6 +1274,20 @@ p {
   animation: fluid-drift-a 24s ease-in-out infinite;
 }
 
+.module-hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 30% 60%, #000 0%, transparent 74%);
+  opacity: 0.28;
+  animation: mesh-drift 20s linear infinite reverse;
+}
+
 .module-hero-layout {
   position: relative;
   z-index: 2;
@@ -1379,15 +1471,33 @@ p {
   border: 1px solid var(--line-soft);
   box-shadow: var(--shadow-soft);
   background: #ffffff;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transform:
+    perspective(980px)
+    rotateX(var(--tilt-rotate-x, 0deg))
+    rotateY(var(--tilt-rotate-y, 0deg))
+    translateY(var(--card-raise, 0px));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.category-card:hover {
+  --card-raise: -2px;
+  box-shadow: 0 16px 36px rgba(8, 30, 64, 0.2);
 }
 
 .category-card img {
   aspect-ratio: 16 / 8;
   object-fit: cover;
+  transform: translateZ(9px);
 }
 
 .category-card-body {
   padding: 16px;
+  transform: translateZ(10px);
+  position: relative;
+  z-index: 2;
 }
 
 .extended-grid {
@@ -1843,6 +1953,39 @@ p {
   }
 }
 
+@keyframes mesh-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 52px 0, 0 52px;
+  }
+}
+
+@keyframes wave-pulse {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.34;
+  }
+  50% {
+    transform: scale(1.08) translate3d(14px, -10px, 0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes wave-focus {
+  0%,
+  100% {
+    transform: scale(0.98);
+    opacity: 0.32;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.46;
+  }
+}
+
 :root[data-lang="zh"] .lang-en {
   display: none;
 }
@@ -1858,6 +2001,29 @@ p {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .product-tile::after,
+  .news-card::after,
+  .category-card::after,
+  .info-card::after,
+  .trust-card::after,
+  .detail-card::after,
+  .module-metric::after {
+    display: none;
+  }
+
+  .product-tile,
+  .category-card {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .hero-mesh::before,
+  .hero-mesh::after {
+    display: none;
   }
 }
 

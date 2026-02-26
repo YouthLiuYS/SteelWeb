@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import CardGlow from "./CardGlow";
 import ScrollProgress from "./ScrollProgress";
 import TopBar from "./sections/TopBar";
 import SiteHeader from "./SiteHeader";
@@ -12,6 +13,7 @@ export default function PageShell({ children, isHome = false }: PageShellProps) 
   return (
     <div className="page">
       <ScrollProgress />
+      <CardGlow />
       <TopBar />
       <SiteHeader isHome={isHome} />
       <main>{children}</main>
